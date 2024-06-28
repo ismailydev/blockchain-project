@@ -1,9 +1,18 @@
 import { DataTable, tokenColumns } from '@/components/organisms';
-import { Button, Card, CardContent, CardFooter, CardHeader, CardTitle, Input } from '@/components/atoms';
+import {
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  Input,
+} from '@/components/atoms';
 import Image from 'next/image';
 import { BNBIcon, BTCIcon, SettingsIcon, SwapIcon, TrendUpIcon } from '@/constants/icons';
 import { ChevronRightIcon } from 'lucide-react';
-import { BNBLineChart, BTCLineChart } from '@/constants/images';
+import { BNBLineChart, BTCBarChart, BTCLineChart } from '@/constants/images';
 
 const tokens = [
   {
@@ -199,6 +208,42 @@ export default function Home() {
                     <p className="bg-success text-xs p-1 text-black">+4.58%</p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="w-full bg-transparent p-4">
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <Image
+                  src="https://i.ibb.co/ZNq0wv6/cryptocurrency-color-btc.png"
+                  alt="btc icon"
+                  width={64}
+                  height={64}
+                />
+                <div className="flex flex-col gap-1">
+                  <CardDescription className="text-xl">Market Summary</CardDescription>
+                  <CardTitle className="text-2xl text-light">Bitcoin</CardTitle>
+                </div>
+              </div>
+              <Button className="w-60 uppercase">Follow</Button>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <div className="grid w-full items-center gap-4">
+              <div className="flex flex-col space-y-1.5">
+                <h3 className="text-5xl text-light">
+                  $64.270
+                  <span className="text-dark">.00</span>
+                </h3>
+              </div>
+              <div className="flex items-center gap-2">
+                <Image src={TrendUpIcon} alt="trend up icon" width={24} height={24} className="mt-1" />
+                <p className="text-success-dark">$1.42 (0.0012%) today</p>
+              </div>
+              <div className="w-full h-full">
+                <Image src={BTCBarChart} alt="btc bar chart" width={1100} height={240} />
               </div>
             </div>
           </CardContent>
