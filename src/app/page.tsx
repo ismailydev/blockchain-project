@@ -15,17 +15,10 @@ import { ChevronRightIcon } from 'lucide-react';
 import { BNBLineChart, BTCBarChart, BTCLineChart } from '@/constants/images';
 // import axios from 'axios';
 import { Token } from '@prisma/client';
-
-const getTokens = async (): Promise<Token[]> => {
-  const apiUrl = process.env.API_URL;
-  const res = await fetch(`${apiUrl}/api/tokens`);
-  const data = await res.json();
-
-  return data;
-};
+import { getTokens } from './actions';
 
 export default async function Home() {
-  const tokens = await getTokens();
+  const tokens: Token[] = await getTokens();
 
   return (
     <main className="p-24">
