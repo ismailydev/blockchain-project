@@ -17,10 +17,10 @@ import { BNBLineChart, BTCBarChart, BTCLineChart } from '@/constants/images';
 import { Token } from '@prisma/client';
 
 const getTokens = async (): Promise<Token[]> => {
-  const res = await fetch('http://localhost:3000/api/tokens');
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/tokens`);
   const data = await res.json();
 
-  return await data;
+  return data;
 };
 
 export default async function Home() {
