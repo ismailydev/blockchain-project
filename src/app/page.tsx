@@ -13,14 +13,14 @@ import Image from 'next/image';
 import { BNBIcon, BTCIcon, SettingsIcon, SwapIcon, TrendUpIcon } from '@/constants/icons';
 import { ChevronRightIcon } from 'lucide-react';
 import { BNBLineChart, BTCBarChart, BTCLineChart } from '@/constants/images';
-import axios from 'axios';
+// import axios from 'axios';
 import { Token } from '@prisma/client';
 
 const getTokens = async (): Promise<Token[]> => {
-  const res = await axios('https://blockchain-project-drab.vercel.app/api/tokens');
-  console.log('res', res.data);
+  const res = await fetch('http://localhost:3000/api/tokens');
+  const data = await res.json();
 
-  return await res.data;
+  return await data;
 };
 
 export default async function Home() {
