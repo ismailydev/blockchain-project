@@ -1,8 +1,9 @@
 import { DataTable, tokenColumns } from '@/components/organisms';
 import { Button, Card, CardContent, CardFooter, CardHeader, CardTitle, Input } from '@/components/atoms';
 import Image from 'next/image';
-import { BNBIcon, BTCIcon, SettingsIcon, SwapIcon } from '@/constants/icons';
+import { BNBIcon, BTCIcon, SettingsIcon, SwapIcon, TrendUpIcon } from '@/constants/icons';
 import { ChevronRightIcon } from 'lucide-react';
+import { BNBLineChart, BTCLineChart } from '@/constants/images';
 
 const tokens = [
   {
@@ -148,6 +149,58 @@ export default function Home() {
               </div>
               <p className="text-dark">Updates in 4s</p>
             </CardFooter>
+          </CardContent>
+        </Card>
+        <Card className="w-full md:w-1/2 bg-transparent p-4">
+          <CardHeader>
+            <CardTitle className="text-light uppercase">Assets</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid w-full items-center gap-4">
+              <div className="flex flex-col space-y-1.5">
+                <h3 className="text-5xl text-light">
+                  $124,248
+                  <span className="text-dark">.23</span>
+                </h3>
+                <div className="flex items-center gap-2">
+                  <Image src={TrendUpIcon} alt="trend up icon" width={24} height={24} className="mt-1" />
+                  <p className="text-success-dark text-lg">$7,359.81</p>
+                </div>
+              </div>
+              <div className="flex justify-between gap-4">
+                <Button
+                  variant="outline"
+                  className="w-full text-light uppercase bg-transparent border-primary hover:bg-transparent">
+                  Deposit
+                </Button>
+                <Button className="w-full uppercase">Trade</Button>
+              </div>
+              <div className="flex flex-col space-y-1.5 text-light">
+                <p>All Assets</p>
+                <div className="bg-dark-background flex gap-2 items-center p-4">
+                  <Image src={BTCIcon} alt="BTC icon" width={32} height={32} />
+                  <p className="text-xl">BTC</p>
+                  <div className="flex-1">
+                    <Image src={BTCLineChart} alt="btc line chart" width={185} height={40} />
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <p className="text-sm">$32,532.45</p>
+                    <p className="bg-error text-xs p-1 text-black">-0.01%</p>
+                  </div>
+                </div>
+                <div className="bg-dark-background flex gap-2 items-center p-4">
+                  <Image src={BNBIcon} alt="BNB icon" width={32} height={32} />
+                  <p className="text-xl">BNB</p>
+                  <div className="flex-1">
+                    <Image src={BNBLineChart} alt="bnb line chart" width={185} height={40} />
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <p className="text-sm">$12,564.12</p>
+                    <p className="bg-success text-xs p-1 text-black">+4.58%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>
