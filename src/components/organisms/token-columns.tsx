@@ -8,7 +8,7 @@ export type Token = {
   id?: string;
   name: string;
   currency: string;
-  icon?: any;
+  icon: string;
   lastTrade: string;
   percent24h: string;
   change24h: string;
@@ -84,7 +84,7 @@ export const tokenColumns: ColumnDef<Token>[] = [
         <ChevronRightIcon className="w-4 h-4" />
       </div>
     ),
-    cell: ({ row }) => {
+    cell: () => {
       return (
         <div className="flex p-2 bg-success text-black w-fit ml-auto cursor-pointer">
           <p className="self-end justify-end justify-self-end">TRADE</p>

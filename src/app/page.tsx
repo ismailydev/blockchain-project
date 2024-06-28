@@ -17,7 +17,7 @@ import axios from 'axios';
 import { Token } from '@prisma/client';
 
 const getTokens = async (): Promise<Token[]> => {
-  const res = await axios('http://localhost:3001/api/tokens');
+  const res = await axios('https://blockchain-project-drab.vercel.app/api/tokens');
   console.log('res', res.data);
 
   return await res.data;
